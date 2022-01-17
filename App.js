@@ -44,7 +44,12 @@ export default function App() {
     } else {
       result = gramsLeft / (weight * 0.6)
     }
-    setAlclevel(result);
+
+    if (result < 0) {
+      setAlclevel(0);
+    } else {
+      setAlclevel(result);
+    }
   }
 
   return (
