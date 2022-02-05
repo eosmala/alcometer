@@ -2,28 +2,41 @@ import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 
 export default StyleSheet.create({
-    container: {
-        paddingTop: Constants.statusBarHeight,
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        marginLeft: 16,
-        marginRight:16,
-      },
-      headline: {
-        marginTop: 16,
-        marginBottom: 16,
-      },
-      form: {
-        alignSelf: 'stretch',
-      },
-      field: {
-        marginBottom: 16,
-      },
-      output: {
-        marginTop: 16,
-        marginBottom: 24,
-        fontSize: 20,
-        fontWeight: 'bold',
-      },
+container: {
+    flex: 1,
+    marginLeft: 20,
+    marginRight: 20,
+},
+header: {
+    paddingTop: Constants.statusBarHeight,
+    paddingBottom: 10,
+},
+headline: {
+    textAlign: 'center',
+},
+form: {
+    alignSelf: 'stretch',
+},
+field: {
+    marginBottom: 16,
+},
+subheading: {
+    marginBottom: 16,
+    fontWeight: 'bold',
+},
+output: {
+    marginTop: 16,
+    marginBottom: 24,
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: "center",
+},
+footer: {
+    alignSelf: 'stretch',
+    padding: 10,
+},
+author: {
+    fontSize: 16,
+    textAlign: 'center',
+}
 });

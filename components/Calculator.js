@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { withTheme, Headline, TextInput, Button, Provider as PaperProvider,useTheme, Text } from 'react-native-paper';
+import { withTheme, Headline, TextInput, Button, Provider as PaperProvider,useTheme, Text, Subheading } from 'react-native-paper';
 import React, { useState } from "react";
 import DropDown from 'react-native-paper-dropdown';
 import Radiobutton from './Radiobutton';
@@ -12,8 +12,8 @@ const Calculator = () => {
     const [time, setTime] = useState(1)
     const [gender, setGender] = useState('male');
     const [alclevel, setAlclevel] = useState(0);
-    const [showDropDown1, setShowDropDown1] = useState(false);
-    const [showDropDown2, setShowDropDown2] = useState(false);
+    const [showDropDownAmount, setShowDropDownAmount] = useState(false);
+    const [showDropDownTime, setShowDropDownTime] = useState(false);
   
     const {colors} = useTheme(theme);
   
@@ -55,10 +55,10 @@ const Calculator = () => {
         setAlclevel(result);
       }
     }
-    function getResultColor(alclevel) {
-        if (alclevel === 0) {
+    function getResultColor(i) {
+        if (i === 0) {
            return "green"; 
-        } else if ( alclevel < 0.5) {
+        } else if ( i < 0.5) {
             return "orange"
         } else {
             return "red";
@@ -67,7 +67,6 @@ const Calculator = () => {
     return (
         <View style={styles.container}>
           <View style={styles.form}>
-            <Headline style={[styles.headline, {color: colors.primary}]}>Alcometer</Headline>
             <TextInput 
                 label='Weight'
                 mode='outlined'
@@ -76,36 +75,42 @@ const Calculator = () => {
                 value={weight}
                 onChangeText={setWeight}
                 />
-                <DropDown 
+            <View style={styles.field}>
+                <DropDown
+                style={{marginBottom:40}} 
                 label={'Bottles'}
                 mode={'outlined'}
                 value={amount}
                 setValue={setAmount}
                 list={amounts}
-                visible={showDropDown1}
-                showDropDown={() => setShowDropDown1(true)}
-                onDismiss={() => setShowDropDown1(false)}
+                visible={showDropDownAmount}
+                showDropDown={() => setShowDropDownAmount(true)}
+                onDismiss={() => setShowDropDownAmount(false)}
                 />
+            </View>
+            <View style={styles.field}>
                 <DropDown 
                     label={'Time'}
                     mode={'outlined'}
                     value={time}
                     setValue={setTime}
                     list={hours}
-                    visible={showDropDown2}
-                    showDropDown={() => setShowDropDown2(true)}
-                    onDismiss={() => setShowDropDown2(false)}
+                    visible={showDropDownTime}
+                    showDropDown={() => setShowDropDownTime(true)}
+                    onDismiss={() => setShowDropDownTime(false)}
                 />
-                <Text style={[styles.headline, {color: colors.primary}]} >Gender</Text>
-                <Radiobutton 
-                    options={genders} 
-                    onPress={(value) => {setGender(value)}}
-                    defaultValue={'male'}
-                    />
-                <Text style={[styles.output, {color: getResultColor(alclevel)}]}>{alclevel.toFixed(2)}</Text>
-
-                <Button mode='contained' onPress={calculate}>Calculate</Button>
             </View>
+            <Subheading style={[styles.subheading, {color: colors.primaryVariant}]}>Gender</Subheading>
+            <Radiobutton 
+                options={genders} 
+                onPress={(value) => {setGender(value)}}
+                defaultValue={'male'}
+                style={{fontWeight: 'bold'}}
+                />
+            <Text style={[styles.output, {color: getResultColor(alclevel)}]}>{alclevel.toFixed(2)}</Text>
+
+            <Button mode='contained' onPress={calculate}>Calculate</Button>
+        </View>
       </View>
     );
 }

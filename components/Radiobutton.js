@@ -29,11 +29,12 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         width: '100%',
         marginBottom: 10,
-        paddingLeft: 30,
-        paddingRight: 30,
+        // paddingLeft: 20,
+        // paddingRight: 20,
     },
     label: {
         marginRight: 10,
+        fontSize: 16,
     },
     circle: {
         height: 28,
