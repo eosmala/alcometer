@@ -72,6 +72,7 @@ const Calculator = () => {
                 mode='outlined'
                 style={styles.field}
                 keyboardType='numeric'
+                maxLength={3}
                 value={weight}
                 onChangeText={setWeight}
                 />
