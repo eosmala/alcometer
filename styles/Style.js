@@ -7,6 +7,7 @@ container: {
     marginLeft: 20,
     marginRight: 20,   
     paddingTop: 20,
+    paddingBottom:20,
 },
 header: {
     paddingTop: Constants.statusBarHeight,
