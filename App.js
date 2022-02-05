@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Provider as PaperProvider, Button, TextInput, useTheme, Text, Headline } from 'react-native-paper';
 import theme from './styles/Theme';
 import DropDown from 'react-native-paper-dropdown';
-import Constants from 'expo-constants';
 import Radiobutton from './components/Radiobutton';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
+import styles from "./styles/Style";
 
 
 export default function App() {
@@ -103,30 +103,3 @@ export default function App() {
   </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Constants.statusBarHeight,
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    marginLeft: 16,
-    marginRight:16,
-  },
-  headline: {
-    marginTop: 16,
-    marginBottom: 16,
-  },
-  form: {
-    alignSelf: 'stretch',
-  },
-  field: {
-    marginBottom: 16,
-  },
-  output: {
-    marginTop: 16,
-    marginBottom: 24,
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-});
