@@ -3,7 +3,7 @@ import { Provider as PaperProvider, Button, TextInput, useTheme, Text, Headline 
 import theme from './styles/Theme';
 import DropDown from 'react-native-paper-dropdown';
 import Constants from 'expo-constants';
-import RadioForm from 'react-native-simple-radio-button';
+import Radiobutton from './components/Radiobutton';
 import { StyleSheet, View } from 'react-native';
 
 
@@ -22,7 +22,7 @@ export default function App() {
     .fill('')
     .map((_,i) => ({ label: `${i + 1} bottles`,value: `${i + 1}`}))
 
-  const hours = Array(10)
+  const hours = Array(12)
     .fill('')
     .map((_,i) => ({ label: `${i + 1} hours`,value: `${i + 1}`}))
 
@@ -91,13 +91,11 @@ export default function App() {
               onDismiss={() => setShowDropDown2(false)}
             />
           <Text>Gender</Text>
-          <RadioForm 
-            style={styles.radio}
-            buttonSize = {10}
-            radio_props={genders}
-            initial={0}
-            onPress={(value) => {setGender(value)}}
-          ></RadioForm>
+          <Radiobutton 
+              options={genders} 
+              onPress={(value) => {setGender(value)}}
+              defaultValue={'male'}
+              />
           <Text>{alclevel.toFixed(2)}</Text>
           <Button mode='contained' onPress={calculate}>Calculate</Button>
         </View>
