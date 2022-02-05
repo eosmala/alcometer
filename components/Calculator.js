@@ -55,48 +55,57 @@ const Calculator = () => {
         setAlclevel(result);
       }
     }
-  
+    function getResultColor(alclevel) {
+        if (alclevel === 0) {
+           return "green"; 
+        } else if ( alclevel < 0.5) {
+            return "orange"
+        } else {
+            return "red";
+        }
+    }
     return (
         <View style={styles.container}>
           <View style={styles.form}>
-          <Headline style={[styles.headline, {color: colors.primary}]}>Alcometer</Headline>
-          <TextInput 
-              label='Weight'
-              mode='outlined'
-              style={styles.field}
-              keyboardType='numeric'
-              value={weight}
-              onChangeText={setWeight}
-            />
-            <DropDown 
-              label={'Bottles'}
-              mode={'outlined'}
-              value={amount}
-              setValue={setAmount}
-              list={amounts}
-              visible={showDropDown1}
-              showDropDown={() => setShowDropDown1(true)}
-              onDismiss={() => setShowDropDown1(false)}
-            />
-            <DropDown 
-                label={'Time'}
-                mode={'outlined'}
-                value={time}
-                setValue={setTime}
-                list={hours}
-                visible={showDropDown2}
-                showDropDown={() => setShowDropDown2(true)}
-                onDismiss={() => setShowDropDown2(false)}
-              />
-            <Text>Gender</Text>
-            <Radiobutton 
-                options={genders} 
-                onPress={(value) => {setGender(value)}}
-                defaultValue={'male'}
+            <Headline style={[styles.headline, {color: colors.primary}]}>Alcometer</Headline>
+            <TextInput 
+                label='Weight'
+                mode='outlined'
+                style={styles.field}
+                keyboardType='numeric'
+                value={weight}
+                onChangeText={setWeight}
                 />
-            <Text>{alclevel.toFixed(2)}</Text>
-            <Button mode='contained' onPress={calculate}>Calculate</Button>
-          </View>
+                <DropDown 
+                label={'Bottles'}
+                mode={'outlined'}
+                value={amount}
+                setValue={setAmount}
+                list={amounts}
+                visible={showDropDown1}
+                showDropDown={() => setShowDropDown1(true)}
+                onDismiss={() => setShowDropDown1(false)}
+                />
+                <DropDown 
+                    label={'Time'}
+                    mode={'outlined'}
+                    value={time}
+                    setValue={setTime}
+                    list={hours}
+                    visible={showDropDown2}
+                    showDropDown={() => setShowDropDown2(true)}
+                    onDismiss={() => setShowDropDown2(false)}
+                />
+                <Text style={[styles.headline, {color: colors.primary}]} >Gender</Text>
+                <Radiobutton 
+                    options={genders} 
+                    onPress={(value) => {setGender(value)}}
+                    defaultValue={'male'}
+                    />
+                <Text style={[styles.output, {color: getResultColor(alclevel)}]}>{alclevel.toFixed(2)}</Text>
+
+                <Button mode='contained' onPress={calculate}>Calculate</Button>
+            </View>
       </View>
     );
 }
