@@ -5,7 +5,8 @@ export default StyleSheet.create({
 container: {
     flex: 1,
     marginLeft: 20,
-    marginRight: 20,
+    marginRight: 20,   
+    paddingTop: 20,
 },
 header: {
     paddingTop: Constants.statusBarHeight,

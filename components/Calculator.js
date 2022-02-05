@@ -77,15 +77,15 @@ const Calculator = () => {
                 />
             <View style={styles.field}>
                 <DropDown
-                style={{marginBottom:40}} 
-                label={'Bottles'}
-                mode={'outlined'}
-                value={amount}
-                setValue={setAmount}
-                list={amounts}
-                visible={showDropDownAmount}
-                showDropDown={() => setShowDropDownAmount(true)}
-                onDismiss={() => setShowDropDownAmount(false)}
+                    style={{marginBottom:40}} 
+                    label={'Bottles'}
+                    mode={'outlined'}
+                    value={amount}
+                    setValue={setAmount}
+                    list={amounts}
+                    visible={showDropDownAmount}
+                    showDropDown={() => setShowDropDownAmount(true)}
+                    onDismiss={() => setShowDropDownAmount(false)}
                 />
             </View>
             <View style={styles.field}>
@@ -100,7 +100,7 @@ const Calculator = () => {
                     onDismiss={() => setShowDropDownTime(false)}
                 />
             </View>
-            <Subheading style={[styles.subheading, {color: colors.primaryVariant}]}>Gender</Subheading>
+            <Subheading style={[styles.subheading, {color: colors.accent}]}>Gender</Subheading>
             <Radiobutton 
                 options={genders} 
                 onPress={(value) => {setGender(value)}}
