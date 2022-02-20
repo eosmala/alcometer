@@ -12,6 +12,6 @@ const theme = {
         primaryBackground: '#f5f5DC',
         accentBackground: '#c4e065',
     }
-  };
-  
-  export default theme;
+};
+
+export default theme;

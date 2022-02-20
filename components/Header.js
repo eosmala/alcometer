@@ -5,11 +5,11 @@ import styles from "../styles/Style";
 import theme from '../styles/Theme';
 
 const Header = () => {
-const {colors} = useTheme(theme);
-  return (
-    <View style={[styles.header, {backgroundColor: colors.accentBackground}]}>
-        <Headline style={[styles.headline,{color: colors.primary}]}>Alcometer</Headline>
-    </View> 
-  );
+	const { colors } = useTheme(theme);
+	return (
+		<View style={[styles.header, { backgroundColor: colors.accentBackground }]}>
+			<Headline style={[styles.headline, { color: colors.primary }]}>Alcometer</Headline>
+		</View>
+	);
 }
 export default withTheme(Header)
